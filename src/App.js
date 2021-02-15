@@ -1,45 +1,39 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+function App() {
+  const [count, setCount] = useState(0);
+  const refCount = useRef(0); // 0 값이 refCount.current에 저장됩니다.
 
-const App = () => {
-  const [id, setId] = useState();
-  const [pw, setPw] = useState();
-  const idRef = useRef();
-  const pwRef = useRef();
-
-  const loginRequest = (event) => {
-    event.preventDefault();
-
-    console.log(idRef.current);
-    console.log(pwRef.current);
-  };
-  const onChange = (event) => {
-    console.log(event.target);
-    console.log(event.target.value);
-    setId = event.target.value;
-  };
-
-  console.log(idRef);
-  console.log(pwRef);
-
+  useEffect(() => {
+    console.log("effect");
+    return () => {
+      console.log("cleanup");
+    };
+  }, []);
   return (
-    <form onSubmit={loginRequest}>
-      <label>
-        id:
-        <input id="id" ref={idRef} type="text" value={id} onChange={onChange} />
-      </label>
-      <label>
-        pw:
-        <input
-          pw="pw"
-          ref={pwRef}
-          type="password"
-          value={pw}
-          onChange={onChange}
-        />
-      </label>
-      <button type="submit">Login</button>
-    </form>
+    <>
+      {count}
+      <button
+        onClick={() => {
+          setCount((count) => count + 1);
+        }}
+      >
+        increment
+      </button>
+      <button
+        onClick={() => {
+          refCount.current++;
+        }}
+      >
+        ref increment
+      </button>
+      <button
+        onClick={() => {
+          console.log("current ref is...", refCount);
+        }}
+      >
+        show Ref
+      </button>
+    </>
   );
-};
-
+}
 export default App;
