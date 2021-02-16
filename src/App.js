@@ -1,39 +1,25 @@
 import React, { useRef, useState, useEffect } from "react";
-function App() {
-  const [count, setCount] = useState(0);
-  const refCount = useRef(0); // 0 값이 refCount.current에 저장됩니다.
+
+const App = () => {
+  const [edit, setEdit] = useState(false);
+  const toggleEdit = () => {
+    setEdit(!edit);
+  };
+
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    console.log("effect");
-    return () => {
-      console.log("cleanup");
-    };
-  }, []);
+    if (edit) {
+      inputRef.current.focus();
+    }
+  }, [edit]);
+
   return (
-    <>
-      {count}
-      <button
-        onClick={() => {
-          setCount((count) => count + 1);
-        }}
-      >
-        increment
-      </button>
-      <button
-        onClick={() => {
-          refCount.current++;
-        }}
-      >
-        ref increment
-      </button>
-      <button
-        onClick={() => {
-          console.log("current ref is...", refCount);
-        }}
-      >
-        show Ref
-      </button>
-    </>
+    <div>
+      {edit && <input ref={inputRef} />}
+      <button onClick={toggleEdit}>Edit</button>
+    </div>
   );
-}
+};
+
 export default App;
