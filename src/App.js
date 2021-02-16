@@ -1,25 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 
 const App = () => {
-  const [edit, setEdit] = useState(false);
-  const toggleEdit = () => {
-    setEdit(!edit);
-  };
+  const valueRef = useRef(10);
+  console.log(valueRef);
 
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    if (edit) {
-      inputRef.current.focus();
-    }
-  }, [edit]);
-
-  return (
-    <div>
-      {edit && <input ref={inputRef} />}
-      <button onClick={toggleEdit}>Edit</button>
-    </div>
-  );
+  return <div>{valueRef.current}</div>;
 };
 
 export default App;
