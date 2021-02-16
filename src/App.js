@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useCallback } from "react";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -14,13 +14,13 @@ const App = () => {
 
     setInput(value);
   };
-  const value = useMemo(() => printInput(), [input]);
+  const value = useCallback(() => printInput(), []);
   return (
     <div>
       <input value={input} ref={inputRef} onChange={onChange} />
       <button
         onClick={() => {
-          printInput();
+          value();
         }}
       >
         Print
