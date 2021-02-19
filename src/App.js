@@ -1,63 +1,47 @@
-import React, { createContext, useContext } from "react";
+import React, { useRef, useState, useMemo, useCallback } from 'react';
+import UserList from './UserList';
+import CreateUser from './CreateUser';
 
-const AppContext = createContext();
+function countActiveUsers(users) {
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter(user => user.active).length;
+}
 
-const App = () => {
-  const user = {
-    nickname: "danuel",
-    isAdmin: true,
-  };
-
-  return (
-    <AppContext.Provider value={user}>
-      <div>
-        <Posts />
-      </div>
-    </AppContext.Provider>
-  );
-};
-
-// 1. PostsContext 생성
-const PostsContext = createContext();
-
-const Posts = () => {
-  const posts = [
+const initialState = {
+  inputs: {
+    username: '',
+    email: ''
+  },
+  users: [
     {
-      title: "useContext 알아보기",
-      content: "이번 편에서는 React Context를 ...",
+      id: 1,
+      username: 'velopert',
+      email: 'public.velopert@gmail.com',
+      active: true
     },
-  ];
-
-  return (
-    <PostsContext.Provider value={posts}>
-      <Children />
-    </PostsContext.Provider>
-  );
+    {
+      id: 2,
+      username: 'tester',
+      email: 'tester@example.com',
+      active: false
+    },
+    {
+      id: 3,
+      username: 'liz',
+      email: 'liz@example.com',
+      active: false
+    }
+  ]
 };
 
-// 2. user와 posts를 가져와 화면에 보여주기
-const Children = () => {
-  const user = useContext(AppContext);
-  const posts = useContext(PostsContext);
-
-  let label = "user";
-  if (user.isAdmin) {
-    label = "admin";
-  }
-
+function App() {
   return (
-    <div>
-      <div>{label}</div>
-      <div>{user.nickname}</div>
-      <div>
-        {posts.map((post, index) => (
-          <div key={index}>
-            <div>{post.title}</div>
-            <div>{post.content}</div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      <CreateUser />
+      <UserList users={[]} />
+      <div>활성사용자 수 : 0</div>
+    </>
   );
-};
+}
+
 export default App;
