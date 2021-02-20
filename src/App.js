@@ -1,33 +1,16 @@
-import React, { useReducer } from "react";
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
-    default:
-      return state;
-  }
-}
-
+import React from "react";
+import List from "./List.jsx";
 function App() {
-  const [number, dispatch] = useReducer(reducer, 0);
-
-  const onIncrease = () => {
-    dispatch({ type: "INCREMENT" });
-  };
-
-  const onDecrease = () => {
-    dispatch({ type: "DECREMENT" });
-  };
-
   return (
-    <div>
-      <h1>{number}</h1>
-      <button onClick={onIncrease}>+1</button>
-      <button onClick={onDecrease}>-1</button>
-    </div>
+    <>
+      <h1>todo list</h1>
+      <form action="">
+        {" "}
+        <input type="text" name="" />
+        <button>할일추가</button>
+      </form>
+      <List />
+    </>
   );
 }
 
