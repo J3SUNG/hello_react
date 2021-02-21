@@ -4,6 +4,7 @@ import List from "./List.jsx";
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState();
+  const [loading, setLoading] = useState(false);
   const data = [
     { title: "study", id: 1, status: "todo" },
     { title: "learn", id: 2, status: "todo" },
@@ -21,10 +22,14 @@ const App = () => {
   };
 
   const fetchInitalData = async () => {
+    setLoading(true);
     // const response = await fetch("http://localhost:8080/todo");
     // const initialData = await response.json();
     const initialData = data;
     setTodos(initialData);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -42,7 +47,7 @@ const App = () => {
         <input type="text" name="" onChange={changeInputData} />
         <button onClick={addTodo}>add todo</button>
       </form>
-      <List todos={todos} />
+      <List todos={todos} loading={loading} />
     </>
   );
 };
