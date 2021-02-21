@@ -4,10 +4,10 @@ import List from "./List.jsx";
 const useFetch = (callback, url) => {
   const [loading, setLoading] = useState(false);
   const data = [
-    { title: "study", id: 1, status: "todo" },
-    { title: "learn", id: 2, status: "todo" },
-    { title: "read", id: 3, status: "todo" },
-    { title: "write", id: 4, status: "todo" },
+    { title: "study", id: 0, status: "todo" },
+    { title: "learn", id: 1, status: "todo" },
+    { title: "read", id: 2, status: "todo" },
+    { title: "write", id: 3, status: "todo" },
   ];
 
   const fetchInitalData = async () => {
@@ -40,7 +40,7 @@ const App = () => {
 
   const addTodo = (event) => {
     event.preventDefault();
-    setTodos([...todos, newTodo]);
+    setTodos([...todos, { title: newTodo, id: todos.length, status: "todo" }]);
   };
 
   useEffect(() => {
