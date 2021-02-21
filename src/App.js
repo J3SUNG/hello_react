@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import List from "./List.jsx";
 
-function App() {
-  const [todos, setTodos] = useState(["study", "learn"]);
+const App = () => {
+  const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState();
+  const data = [
+    { title: "study", id: 1, status: "todo" },
+    { title: "learn", id: 2, status: "todo" },
+    { title: "read", id: 3, status: "todo" },
+    { title: "write", id: 4, status: "todo" },
+  ];
 
   const changeInputData = (event) => {
     setNewTodo(event.target.value);
@@ -14,9 +20,20 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const fetchInitalData = async () => {
+    // const response = await fetch("http://localhost:8080/todo");
+    // const initialData = await response.json();
+    const initialData = data;
+    setTodos(initialData);
+  };
+
   useEffect(() => {
-    console.log("new Render");
+    console.log("list render");
   }, [todos]);
+
+  useEffect(() => {
+    fetchInitalData();
+  }, []);
 
   return (
     <>
@@ -28,6 +45,6 @@ function App() {
       <List todos={todos} />
     </>
   );
-}
+};
 
 export default App;
