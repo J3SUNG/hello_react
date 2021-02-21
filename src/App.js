@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List.jsx";
 
-const App = () => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState();
+const useFetch = (callback, url) => {
   const [loading, setLoading] = useState(false);
   const data = [
     { title: "study", id: 1, status: "todo" },
@@ -11,6 +9,30 @@ const App = () => {
     { title: "read", id: 3, status: "todo" },
     { title: "write", id: 4, status: "todo" },
   ];
+
+  const fetchInitalData = async () => {
+    setLoading(true);
+    // const response = await fetch(url);
+    // const initialData = await response.json();
+    const initialData = data;
+    callback(initialData);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    fetchInitalData();
+  }, []);
+
+  return loading;
+};
+
+const App = () => {
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState();
+
+  const loading = useFetch(setTodos, "http://localhost:8080/todo");
 
   const changeInputData = (event) => {
     setNewTodo(event.target.value);
@@ -21,24 +43,9 @@ const App = () => {
     setTodos([...todos, newTodo]);
   };
 
-  const fetchInitalData = async () => {
-    setLoading(true);
-    // const response = await fetch("http://localhost:8080/todo");
-    // const initialData = await response.json();
-    const initialData = data;
-    setTodos(initialData);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  };
-
   useEffect(() => {
     console.log("list render");
   }, [todos]);
-
-  useEffect(() => {
-    fetchInitalData();
-  }, []);
 
   return (
     <>
