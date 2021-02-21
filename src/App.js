@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     console.log("new Render");
-  });
+  }, [todos]);
 
   return (
     <>
