@@ -7,4 +7,5 @@ const List = ({ todos, loading }) => {
   }
   return <ul>{todoList}</ul>;
 };
+
 export default List;
