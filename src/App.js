@@ -18,6 +18,21 @@ const App = () => {
     setTodos([...todos, { title: newTodo, id: todos.length, status: "todo" }]);
   };
 
+  const changeTodoStatus = (id) => {
+    const updateTodos = todos.map((todo) => {
+      if (todo.id === +id) {
+        if (todo.status === "done") {
+          todo.status = "todo";
+        } else {
+          todo.status = "done";
+        }
+      }
+      return todo;
+    });
+    setTodos(updateTodos);
+    console.log(updateTodos);
+  };
+
   useEffect(() => {
     console.log("list render");
   }, [todos]);
@@ -31,7 +46,11 @@ const App = () => {
         <input type="text" name="" onChange={changeInputData} />
         <button onClick={addTodo}>add todo</button>
       </form>
-      <List todos={todos} loading={loading} />
+      <List
+        todos={todos}
+        loading={loading}
+        changeTodoStatus={changeTodoStatus}
+      />
     </>
   );
 };
