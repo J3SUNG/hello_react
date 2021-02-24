@@ -4,6 +4,8 @@ import useFetch from "./useFetch.js";
 import Header from "./Header.jsx";
 import Form from "./Form.jsx";
 
+export const TodoContext = React.createContext();
+
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState();
@@ -39,9 +41,8 @@ const App = () => {
   }, [todos]);
 
   return (
-    <>
-      <h1>todo list</h1>
-      <Header todos={todos} />
+    <TodoContext.Provider value={{ todos }}>
+      <Header />
 
       <Form addTodo={addTodo} changeInputData={changeInputData} />
       <List
@@ -49,7 +50,7 @@ const App = () => {
         loading={loading}
         changeTodoStatus={changeTodoStatus}
       />
-    </>
+    </TodoContext.Provider>
   );
 };
 
