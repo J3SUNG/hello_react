@@ -6,7 +6,7 @@ import Form from "./Form.jsx";
 
 export const TodoContext = React.createContext();
 
-const App = () => {
+const TodoStore = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState();
 
@@ -41,10 +41,12 @@ const App = () => {
   }, [todos]);
 
   return (
-    <TodoContext.Provider value={{ todos }}>
+    <TodoContext.Provider
+      value={{ todos, addTodo, changeInputData, loading, changeTodoStatus }}
+    >
       <Header />
 
-      <Form addTodo={addTodo} changeInputData={changeInputData} />
+      <Form />
       <List
         todos={todos}
         loading={loading}
@@ -54,4 +56,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default TodoStore;

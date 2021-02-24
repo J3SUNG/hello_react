@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import TodoStore from "./TodoStore";
 import "./index.css";
 
 ReactDOM.render(
   <div>
-    <App />
+    <TodoStore />
   </div>,
   document.getElementById("root")
 );
