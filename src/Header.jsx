@@ -5,7 +5,9 @@ const Header = ({ todos }) => {
   return (
     <div>
       <h1>Hello Todo Application</h1>
-      <div className="countInfo">todo : {todos.length}</div>
+      <div className="countInfo">
+        todo : {todos.filter((v) => v.status === "todo").length}
+      </div>
     </div>
   );
 };
