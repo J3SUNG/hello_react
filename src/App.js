@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import List from "./List.jsx";
 import useFetch from "./useFetch.js";
 import Header from "./Header.jsx";
+import Form from "./Form.jsx";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -42,10 +43,7 @@ const App = () => {
       <h1>todo list</h1>
       <Header todos={todos} />
 
-      <form action="">
-        <input type="text" name="" onChange={changeInputData} />
-        <button onClick={addTodo}>add todo</button>
-      </form>
+      <Form addTodo={addTodo} changeInputData={changeInputData} />
       <List
         todos={todos}
         loading={loading}
