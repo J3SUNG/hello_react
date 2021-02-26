@@ -1,16 +1,14 @@
-import React from "react";
-import TodoStore from "./TodoStore.js";
-import List from "./List.jsx";
-import Header from "./Header.jsx";
-import Form from "./Form.jsx";
+import React, { useState } from "react";
+import Print from "./Print";
+
+export const Store = React.createContext();
 
 const App = () => {
+  const [text, setText] = useState("Hello!!");
   return (
-    <TodoStore>
-      <Header />
-      <Form />
-      <List />
-    </TodoStore>
+    <Store.Provider value={{ text }}>
+      <Print />
+    </Store.Provider>
   );
 };
 
