@@ -6,7 +6,7 @@ export const Store = React.createContext();
 const App = () => {
   const [text, setText] = useState("Hello!!");
   return (
-    <Store.Provider value={{ text }}>
+    <Store.Provider value={text}>
       <Print />
     </Store.Provider>
   );
