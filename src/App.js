@@ -1,14 +1,27 @@
-import React, { useState } from "react";
-import Print from "./Print";
-
-export const Store = React.createContext();
+import React, { useState, useMemo, useEffect } from "react";
 
 const App = () => {
-  const [text, setText] = useState("Hello!!");
+  const [flag, setFlag] = useState(false);
+  const [input, setInput] = useState("");
+  const printInput = useMemo(() => {
+    return input;
+  }, [flag]);
+  const onChange = (event) => {
+    setInput(event.target.value);
+  };
+  const onClick = (event) => {
+    event.preventDefault();
+    setFlag(!flag);
+  };
+  useEffect(() => console.log(printInput));
+
   return (
-    <Store.Provider value={text}>
-      <Print />
-    </Store.Provider>
+    <>
+      <form>
+        <input value={input} onChange={onChange} />
+        <button onClick={onClick}>Click</button>
+      </form>
+    </>
   );
 };
 
