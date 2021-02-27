@@ -1,10 +1,10 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 
 const App = () => {
   const [flag, setFlag] = useState(false);
   const [input, setInput] = useState("");
-  const printInput = useMemo(() => {
-    return input;
+  const printInput = useCallback(() => {
+    return Math.random();
   }, [flag]);
   const onChange = (event) => {
     setInput(event.target.value);
@@ -13,7 +13,7 @@ const App = () => {
     event.preventDefault();
     setFlag(!flag);
   };
-  useEffect(() => console.log(printInput));
+  useEffect(() => console.log(printInput()));
 
   return (
     <>
