@@ -4,9 +4,12 @@ const App = () => {
   const [count, setCount] = useState(30);
   const [flag, setFlag] = useState(false);
   const [input, setInput] = useState("");
-  const printInput = useCallback(() => {
-    return Math.random() + count;
-  }, []);
+  const printInput = useMemo(() => {
+    return input;
+  }, [input]);
+  // const printInput = useCallback(() => {
+  //   return Math.random() + count;
+  // }, []);
   const onChange = (event) => {
     setInput(event.target.value);
   };
@@ -17,7 +20,7 @@ const App = () => {
     console.log(count);
   };
   useEffect(() => {
-    console.log(printInput());
+    console.log(printInput);
   });
 
   return (
