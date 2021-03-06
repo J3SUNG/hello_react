@@ -1,7 +1,8 @@
 import React from "react";
+import ChildrenComponent from "./ChildrenComponent";
 
 const App = () => {
-  return <div></div>;
+  return <ChildrenComponent name="react" />;
 };
 
 export default App;
