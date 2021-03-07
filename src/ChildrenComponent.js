@@ -12,12 +12,11 @@ const ChildrenComponent = ({ name, value }) => {
 
 ChildrenComponent.defaultProps = {
   name: "(unknown name)",
-  value: "(unknown value)",
 };
 
 ChildrenComponent.propTypes = {
   name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
 };
 
 export default ChildrenComponent;
