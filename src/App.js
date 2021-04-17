@@ -8,7 +8,7 @@ const App = () => {
     <>
       <div>{name === "React" && "Hello, React!"}</div>
       <div>{id || "ID is undefined."}</div>
-      <MyComponent />
+      <MyComponent>Hello</MyComponent>
     </>
   );
 };
