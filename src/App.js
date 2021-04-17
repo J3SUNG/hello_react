@@ -2,7 +2,13 @@ import React from "react";
 
 const App = () => {
   const name = "React";
-  return <div>{name === "React" ? "Hello, React!" : "Hello!"}</div>;
+  const id = undefined;
+  return (
+    <>
+      <div>{name === "React" && "Hello, React!"}</div>
+      <div>{id || "ID is undefined."}</div>
+    </>
+  );
 };
 
 export default App;
