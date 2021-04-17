@@ -1,8 +1,8 @@
 import React from "react";
-import ChildrenComponent from "./ChildrenComponent";
 
 const App = () => {
-  return <ChildrenComponent name="react" />;
+  const name = "React";
+  return <div>{name === "React" ? "Hello, React!" : "Hello!"}</div>;
 };
 
 export default App;
