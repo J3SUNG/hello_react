@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EventPractice = () => {
+  const [message, setMessage] = useState("");
   return (
     <div>
       <h1>Event Practice</h1>
@@ -9,9 +10,10 @@ const EventPractice = () => {
         name="message"
         placeholder="input anything"
         onChange={(e) => {
-          console.log(e.target.value);
+          setMessage(e.target.value);
         }}
       />
+      <div>{message}</div>
     </div>
   );
 };
