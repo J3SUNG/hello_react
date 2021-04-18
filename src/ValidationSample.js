@@ -10,7 +10,7 @@ const ValidationSample = () => {
   };
   const onClick = () => {
     setClicked(true);
-    setValidated(password === "000");
+    setValidated(password === "0000");
   };
   return (
     <div>
