@@ -2,6 +2,7 @@ import React from "react";
 import EventPractice from "./EventPractice";
 import MyComponent from "./MyComponent";
 import Say from "./Say";
+import ValidationSample from "./ValidationSample";
 
 const App = () => {
   const name = "React";
@@ -12,7 +13,8 @@ const App = () => {
       {/* <div>{id || "ID is undefined."}</div> */}
       {/* <MyComponent>Hello</MyComponent> */}
       {/* <Say /> */}
-      <EventPractice />
+      {/* <EventPractice /> */}
+      <ValidationSample />
     </>
   );
 };
