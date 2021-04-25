@@ -3,6 +3,7 @@ import EventPractice from "./EventPractice";
 import MyComponent from "./MyComponent";
 import RefSample from "./RefSample";
 import Say from "./Say";
+import ScrollBox from "./ScrollBox";
 import ValidationSample from "./ValidationSample";
 
 const App = () => {
@@ -16,7 +17,8 @@ const App = () => {
       {/* <Say /> */}
       {/* <EventPractice /> */}
       {/* <ValidationSample /> */}
-      <RefSample />
+      {/* <RefSample /> */}
+      <ScrollBox />
     </>
   );
 };
