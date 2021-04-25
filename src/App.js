@@ -1,5 +1,6 @@
 import React from "react";
 import EventPractice from "./EventPractice";
+import IterationSample from "./IterationSample";
 import MyComponent from "./MyComponent";
 import RefSample from "./RefSample";
 import Say from "./Say";
@@ -18,7 +19,8 @@ const App = () => {
       {/* <EventPractice /> */}
       {/* <ValidationSample /> */}
       {/* <RefSample /> */}
-      <ScrollBox />
+      {/* <ScrollBox /> */}
+      <IterationSample />
     </>
   );
 };
