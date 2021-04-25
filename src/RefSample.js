@@ -6,9 +6,12 @@ const RefSample = () => {
     input.current.focus();
   };
   return (
-    <div>
-      <input ref={inputRef} />
-    </div>
+    <>
+      <button onClick={handleFocus}>Click</button>
+      <div>
+        <input ref={inputRef} />
+      </div>
+    </>
   );
 };
 
