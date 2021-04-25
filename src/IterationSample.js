@@ -1,19 +1,10 @@
 import React from "react";
 
 const IterationSample = () => {
-  const numbers = [1, 2, 3, 4, 5];
-  const result = numbers.map((num) => num + num);
+  const names = ["snowman", "ice", "snow", "wind"];
+  const result = names.map((name) => <li>{name}</li>);
   console.log(result);
-  return (
-    <>
-      <ul>
-        <li>snowman</li>
-        <li>ice</li>
-        <li>snow</li>
-        <li>wind</li>
-      </ul>
-    </>
-  );
+  return <ul>{result}</ul>;
 };
 
 export default IterationSample;
