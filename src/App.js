@@ -1,6 +1,7 @@
 import React from "react";
 import EventPractice from "./EventPractice";
 import MyComponent from "./MyComponent";
+import RefSample from "./RefSample";
 import Say from "./Say";
 import ValidationSample from "./ValidationSample";
 
@@ -14,7 +15,8 @@ const App = () => {
       {/* <MyComponent>Hello</MyComponent> */}
       {/* <Say /> */}
       {/* <EventPractice /> */}
-      <ValidationSample />
+      {/* <ValidationSample /> */}
+      <RefSample />
     </>
   );
 };
