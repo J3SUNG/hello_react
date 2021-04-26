@@ -24,8 +24,8 @@ const App = () => {
       {/* <RefSample /> */}
       {/* <ScrollBox /> */}
       {/* <IterationSample /> */}
-      {/* <Counter /> */}
-      <button
+      <Counter />
+      {/* <button
         onClick={() => {
           setVisible(!visible);
         }}
@@ -34,7 +34,7 @@ const App = () => {
         {visible ? "Hide" : "View"}
       </button>
       <hr />
-      {visible && <Info />}
+      {visible && <Info />} */}
     </>
   );
 };
