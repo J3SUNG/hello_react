@@ -1,6 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 import EventPractice from "./EventPractice";
+import Info from "./Info";
 import IterationSample from "./IterationSample";
 import MyComponent from "./MyComponent";
 import RefSample from "./RefSample";
@@ -22,7 +23,8 @@ const App = () => {
       {/* <RefSample /> */}
       {/* <ScrollBox /> */}
       {/* <IterationSample /> */}
-      <Counter />
+      {/* <Counter /> */}
+      <Info />
     </>
   );
 };
