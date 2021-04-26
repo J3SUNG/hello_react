@@ -26,8 +26,8 @@ const App = () => {
       {/* <ScrollBox /> */}
       {/* <IterationSample /> */}
       {/* <Counter /> */}
-      {/* <Info /> */}
-      <Average />
+      <Info />
+      {/* <Average /> */}
     </>
   );
 };
