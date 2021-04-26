@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Average from "./Average";
 import Counter from "./Counter";
 import EventPractice from "./EventPractice";
 import Info from "./Info";
@@ -25,7 +26,8 @@ const App = () => {
       {/* <ScrollBox /> */}
       {/* <IterationSample /> */}
       {/* <Counter /> */}
-      <Info />
+      {/* <Info /> */}
+      <Average />
     </>
   );
 };
