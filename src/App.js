@@ -24,17 +24,8 @@ const App = () => {
       {/* <RefSample /> */}
       {/* <ScrollBox /> */}
       {/* <IterationSample /> */}
-      <Counter />
-      {/* <button
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      >
-        {" "}
-        {visible ? "Hide" : "View"}
-      </button>
-      <hr />
-      {visible && <Info />} */}
+      {/* <Counter /> */}
+      <Info />
     </>
   );
 };
