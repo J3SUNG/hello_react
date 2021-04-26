@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Counter from "./Counter";
 import EventPractice from "./EventPractice";
 import Info from "./Info";
@@ -10,8 +10,9 @@ import ScrollBox from "./ScrollBox";
 import ValidationSample from "./ValidationSample";
 
 const App = () => {
-  const name = "React";
-  const id = undefined;
+  // const name = "React";
+  // const id = undefined;
+  const [visible, setVisible] = useState(false);
   return (
     <>
       {/* <div>{name === "React" && "Hello, React!"}</div> */}
@@ -24,7 +25,16 @@ const App = () => {
       {/* <ScrollBox /> */}
       {/* <IterationSample /> */}
       {/* <Counter /> */}
-      <Info />
+      <button
+        onClick={() => {
+          setVisible(!visible);
+        }}
+      >
+        {" "}
+        {visible ? "Hide" : "View"}
+      </button>
+      <hr />
+      {visible && <Info />}
     </>
   );
 };
