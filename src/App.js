@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import logo from "./logo.png";
 import "./App.css";
-import SassComponent from "./SassComponent";
+import CSSModule from "./CSSModule";
 const App = () => {
   return (
     <div className="App">
-      <SassComponent />
+      <CSSModule />
     </div>
   );
 };
