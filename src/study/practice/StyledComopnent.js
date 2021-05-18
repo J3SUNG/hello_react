@@ -37,10 +37,6 @@ const Button = styled.button`
   font-size: 1rem;
   font-weight: 600;
 
-  $:hover {
-    background: rgba(255, 255, 255, 0.9);
-  }
-
   ${(props) =>
     props.inverted &&
     css`
