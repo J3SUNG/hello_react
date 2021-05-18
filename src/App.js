@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import TodoTemplate from "./components/TodoTemplate";
+import TodoInsert from "./components/TodoInsert";
 import "./App.css";
 
 const App = () => {
-  return <TodoTemplate>Make a Todo App!</TodoTemplate>;
+  return (
+    <TodoTemplate>
+      <TodoInsert />
+    </TodoTemplate>
+  );
 };
 
 export default App;
